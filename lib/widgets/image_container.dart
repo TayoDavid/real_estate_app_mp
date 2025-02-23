@@ -26,12 +26,8 @@ class _ImageContainerState extends State<ImageContainer> with TickerProviderStat
     _animationController = AnimationController(vsync: this, duration: Duration(seconds: 1));
     _animation = CurvedAnimation(parent: _animationController, curve: Curves.easeInOut);
 
-    Future.delayed(Duration(milliseconds: 4600), () {
-      WidgetsFlutterBinding.ensureInitialized().addPostFrameCallback((_) {
-        if (mounted) {
-          setState(() => _width = widget.width);
-        }
-      });
+    Future.delayed(Duration(seconds: 5), () {
+      setState(() => _width = widget.width);
     });
   }
 
@@ -39,6 +35,14 @@ class _ImageContainerState extends State<ImageContainer> with TickerProviderStat
   void dispose() {
     _animationController.dispose();
     super.dispose();
+  }
+
+  @override
+  void didUpdateWidget(covariant ImageContainer oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    Future.delayed(Duration(seconds: 5), () {
+      setState(() => _width = widget.width);
+    });
   }
 
   @override

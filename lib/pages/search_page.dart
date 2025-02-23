@@ -36,41 +36,37 @@ class _SearchPageState extends State<SearchPage> with TickerProviderStateMixin {
         bottom: false,
         child: Stack(
           children: [
-            Column(
+            Row(
               children: [
-                Row(
-                  children: [
-                    Expanded(
-                      child: TextFormField(
-                        cursorHeight: 18,
-                        style: TextStyle(
-                          color: Theme.of(context).colorScheme.onBackground,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500,
-                        ),
-                        cursorColor: Colors.white,
-                        decoration: InputDecoration(
-                          hintText: 'Saint Petersburg',
-                          filled: true,
-                          fillColor: Colors.white,
-                          prefixIcon: Icon(CupertinoIcons.search),
-                          border: borderless,
-                          contentPadding: EdgeInsets.symmetric(vertical: 4),
-                        ),
-                      ).height(44),
+                Expanded(
+                  child: TextFormField(
+                    cursorHeight: 18,
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.onBackground,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
                     ),
-                    Container(
-                      width: 44,
-                      height: 44,
-                      margin: EdgeInsets.only(left: 8),
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.white,
-                      ),
-                      child: Icon(Icons.tune),
-                    )
-                  ],
+                    cursorColor: Colors.white,
+                    decoration: InputDecoration(
+                      hintText: 'Saint Petersburg',
+                      filled: true,
+                      fillColor: Colors.white,
+                      prefixIcon: Icon(CupertinoIcons.search),
+                      border: borderless,
+                      contentPadding: EdgeInsets.symmetric(vertical: 4),
+                    ),
+                  ).height(44),
                 ),
+                Container(
+                  width: 44,
+                  height: 44,
+                  margin: EdgeInsets.only(left: 8),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.white,
+                  ),
+                  child: Icon(Icons.tune),
+                )
               ],
             ).paddingSymmetric(x: 20),
             Positioned(
@@ -143,6 +139,10 @@ class _SearchPageState extends State<SearchPage> with TickerProviderStateMixin {
                                   ),
                                 ],
                               ),
+                            ).onTap(
+                              execute: () {
+                                _animationController.reset();
+                              },
                             ),
                           ),
                         ],
