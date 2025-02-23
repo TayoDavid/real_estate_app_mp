@@ -19,17 +19,16 @@ class _AnimatedTextState extends State<AnimatedText> with SingleTickerProviderSt
   void initState() {
     super.initState();
 
-    _controller = AnimationController(vsync: this, duration: Duration(seconds: 1));
+    _controller = AnimationController(vsync: this, duration: Duration(seconds: 3));
     _animation = Tween<double>(begin: 0, end: widget.text).animate(
       CurvedAnimation(parent: _controller, curve: Curves.decelerate),
     );
+
+    _controller.forward();
   }
 
   @override
   Widget build(BuildContext context) {
-    _controller
-      ..reset
-      ..forward();
     return AnimatedBuilder(
       animation: _animation,
       builder: (BuildContext context, Widget? child) {

@@ -25,7 +25,7 @@ class _ImageContainerState extends State<ImageContainer> with TickerProviderStat
     _animationController = AnimationController(vsync: this, duration: Duration(seconds: 2));
     _animation = CurvedAnimation(parent: _animationController, curve: Curves.easeInOut);
 
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(Duration(seconds: 4), () {
       setState(() {
         _width = widget.width;
       });

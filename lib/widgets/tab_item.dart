@@ -54,6 +54,7 @@ class _TabItemState extends State<TabItem> with SingleTickerProviderStateMixin {
       child: AnimatedContainer(
         width: widget.selected ? 42 : 36,
         height: widget.selected ? 42 : 36,
+        onEnd: () {},
         duration: Duration(milliseconds: 100),
         child: body,
       ),
