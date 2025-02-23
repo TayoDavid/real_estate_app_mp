@@ -1,4 +1,5 @@
 class Assets {
+  static const String map = "assets/images/map.jpg";
   static const String avatar = "assets/images/avatar.jpg";
   static const String home1 = "assets/images/home1.jpg";
   static const String home2 = "assets/images/home2.jpg";

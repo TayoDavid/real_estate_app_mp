@@ -4,10 +4,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ImageContainer extends StatefulWidget {
-  const ImageContainer({super.key, required this.img, this.width = 0.0});
+  const ImageContainer({super.key, required this.img, required this.address, this.width = 0.0});
 
   final String img;
   final double width;
+  final String address;
 
   @override
   State<ImageContainer> createState() => _ImageContainerState();
@@ -22,12 +23,14 @@ class _ImageContainerState extends State<ImageContainer> with TickerProviderStat
   @override
   void initState() {
     super.initState();
-    _animationController = AnimationController(vsync: this, duration: Duration(seconds: 2));
+    _animationController = AnimationController(vsync: this, duration: Duration(seconds: 1));
     _animation = CurvedAnimation(parent: _animationController, curve: Curves.easeInOut);
 
-    Future.delayed(Duration(seconds: 4), () {
-      setState(() {
-        _width = widget.width;
+    Future.delayed(Duration(milliseconds: 4600), () {
+      WidgetsFlutterBinding.ensureInitialized().addPostFrameCallback((_) {
+        if (mounted) {
+          setState(() => _width = widget.width);
+        }
       });
     });
   }
@@ -88,7 +91,7 @@ class _ImageContainerState extends State<ImageContainer> with TickerProviderStat
                                   opacity: _animation,
                                   child: Center(
                                     child: Text(
-                                      "Gladkova St., 25",
+                                      widget.address,
                                       style: TextStyle(
                                         fontSize: 12,
                                         fontWeight: FontWeight.bold,

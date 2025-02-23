@@ -10,6 +10,14 @@ bool get isAndroid {
   return Platform.isAndroid;
 }
 
+extension AnimationContlExt on AnimationController {
+  void proceed() {
+    if (isAnimating) {
+      forward();
+    }
+  }
+}
+
 extension ContextExt on BuildContext {
   bool get keyboardVisible {
     return MediaQuery.of(this).viewInsets.bottom > 0;
