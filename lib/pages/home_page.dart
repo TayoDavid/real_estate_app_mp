@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:real_estate_app_mp/utils/animated_text.dart';
 import 'package:real_estate_app_mp/utils/circle_path.dart';
 import 'package:real_estate_app_mp/utils/extensions.dart';
 import 'package:real_estate_app_mp/utils/resource.dart';
@@ -95,13 +96,9 @@ class _HomePageState extends State<HomePage> {
                                   decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.orange),
                                   child: Column(
                                     children: [
-                                      AppText(
-                                        'BUY',
-                                        size: 12,
-                                        color: Colors.white,
-                                      ),
+                                      AppText('BUY', size: 12, color: Colors.white),
                                       Spacer(),
-                                      AppText('1034', size: 40, weight: FontWeight.bold, color: Colors.white),
+                                      AnimatedText(text: 1034),
                                       AppText('offers', size: 12, color: Colors.white),
                                       Spacer(),
                                     ],
@@ -119,13 +116,9 @@ class _HomePageState extends State<HomePage> {
                                 ),
                                 child: Column(
                                   children: [
-                                    AppText(
-                                      'RENT',
-                                      size: 12,
-                                      color: Colors.grey,
-                                    ),
+                                    AppText('RENT', size: 12, color: Colors.grey),
                                     Spacer(),
-                                    AppText('2212', size: 40, weight: FontWeight.bold, color: Colors.grey),
+                                    AnimatedText(text: 2212, color: Colors.grey),
                                     AppText('offers', size: 12, color: Colors.grey),
                                     Spacer(),
                                   ],
